@@ -12,15 +12,16 @@ namespace TheGame
 
             new Box(new Point(30, 150), new Size(40, 40), 50, 0.3, 1.8, Brushes.GreenYellow),
 
-            new Box(new Point(160, 150), new Size(30, 30), 20, 0.45),
+            new Box(new Point(160, 150), new Size(30, 30), 20, 0.45, 2d, Brushes.DarkGreen),
 
-            new Box(new Point(780, 150), new Size(40, 80), 60),
-            new Box(new Point(600, 550), new Size(50, 50), 60, 0.3, 5),
-            new Box(new Point(610, 160), new Size(60, 35), 45, 0.45, 4),
-            new Box(new Point(615, 25), new Size(35, 35), 33, 0.4, 4),
+            new Box(new Point(780, 150), new Size(40, 80), 60, 0.2, 2.0d, Brushes.DarkGreen),
+            new Box(new Point(600, 550), new Size(50, 50), 60, 0.3, 5, Brushes.DarkGreen),
+            new Box(new Point(610, 160), new Size(60, 35), 45, 0.45, 4, Brushes.DarkRed),
+            new Box(new Point(615, 25), new Size(35, 35), 33, 0.4, 4, Brushes.DarkRed),
 
-            new Box(new Point(180, 200), new Size(40, 40), 40),
-            new Box(new Point(320, 600), new Size(50, 50), 50),
+            new Box(new Point(180, 200), new Size(40, 40), 40, 0.2, 2, Brushes.DarkRed),
+            new Box(new Point(240, 200), new Size(30, 30), 40, 0.2, 2, Brushes.DarkGreen),
+            new Box(new Point(320, 600), new Size(50, 50), 50, 0.2, 2, Brushes.DarkGreen),
 
 
             new WorldGeometry(new Point(0, 250), new Size(180, 20)),
