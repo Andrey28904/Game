@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
+﻿using System.Linq;
 using System.Windows;
 using Size = System.Drawing.Size;
 using Point = System.Drawing.Point;
@@ -25,10 +20,10 @@ namespace TheGame
 
         public bool OnTouch(GameObject obj)
         {
-            foreach (var point in obj.GetAllPoints())
+            foreach (var point in obj.Collider.GetAllPoints())
                 if (IsInsideSize(point))
                     return true;
-            foreach(var pair in obj.GetPairsOfAllPoints())
+            foreach(var pair in obj.Collider.GetPairsOfAllPoints())
             {
                 var newPair = pair.OrderBy((rec) => rec.X).ThenBy((rec) => rec.Y).ToArray();
                 var leftUpPoint = RealPos;

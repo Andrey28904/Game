@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Drawing;
 
 namespace TheGame
@@ -11,22 +7,32 @@ namespace TheGame
     {
         public static readonly List<GameObject> ListOfAllEntitiesOnLevel1 = new List<GameObject>
         {
-            new Box(new Point(120, 40), new Size(40, 40), 50, 0, 1.8, Brushes.GreenYellow),
-            new WorldGeometry(new Point(20, 60), new Size(300, 20)),
-            new Box(new Point(340, 40), new Size(60, 60), 20),
-            new WorldGeometry(new Point(100, 800), new Size(500, 20)),
-            new Box(new Point(340, 500), new Size(80, 80), 40, 0.1),
-            new Box(new Point(350, 200), new Size(30, 30), 50, 0.7),
-            new Box(new Point(360, -20), new Size(35, 35), 20, 0.4),
-            new Box(new Point(600, 500), new Size(80, 80), 40, 0.1),
-            new Box(new Point(800, 500), new Size(40, 80), 60, 0),
-            new Box(new Point(360, 380), new Size(60, 40), 40, 0),
-            new Box(new Point(500, 380), new Size(100, 100), 400, 0),
-            new WorldGeometry(new Point(600, 600), new Size(20, 200)),
-            new WorldGeometry(new Point(600, 600), new Size(280, 20)),
-            new WorldGeometry(new Point(600, 600), new Size(20, 200)),
-            new WorldGeometry(new Point(80, 400), new Size(20, 400)),
-            new WorldGeometry(new Point(900, 200), new Size(20, 400))
+            new WorldGeometry(new Point(0, 800), new Size(600, 160), true, Brushes.DarkRed),//LoseZone
+            new WorldGeometry(new Point(600, 800), new Size(400, 120), true, Brushes.Green),//WinZone
+
+            new Box(new Point(30, 150), new Size(40, 40), 50, 0.3, 1.8, Brushes.GreenYellow),
+
+            new Box(new Point(160, 150), new Size(30, 30), 20, 0.45),
+
+            new Box(new Point(780, 150), new Size(40, 80), 60),
+            new Box(new Point(600, 550), new Size(50, 50), 60, 0.3, 5),
+            new Box(new Point(610, 160), new Size(60, 35), 45, 0.45, 4),
+            new Box(new Point(615, 25), new Size(35, 35), 33, 0.4, 4),
+
+            new Box(new Point(180, 200), new Size(40, 40), 40),
+            new Box(new Point(320, 600), new Size(50, 50), 50),
+
+
+            new WorldGeometry(new Point(0, 250), new Size(180, 20)),
+            new WorldGeometry(new Point(140, 500), new Size(180, 20)),
+            new WorldGeometry(new Point(200, 800), new Size(400, 20)),
+            new WorldGeometry(new Point(600, 600), new Size(240, 20)),
+            new WorldGeometry(new Point(600, 800), new Size(20, 140)),
+            new WorldGeometry(new Point(600, 920), new Size(400, 20)),
+            new WorldGeometry(new Point(0, 0), new Size(20, 940)),
+            new WorldGeometry(new Point(0, 940), new Size(620, 20)),
+            new WorldGeometry(new Point(0, 0), new Size(980, 20)),
+            new WorldGeometry(new Point(980, 0), new Size(20, 940))
         };
     }
 }

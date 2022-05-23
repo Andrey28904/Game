@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using TheGame.Interfaces;
 using Size = System.Drawing.Size;
@@ -14,7 +10,6 @@ namespace TheGame
     class WorldGeometry : GameObject, IPhysics, IDraw
     {
         public bool IsStatic { get; set; } = true;
-        public bool IsTransparentForPhysics { get; set; } = false;
         public Vector Speed { get; set; } = new Vector(0, 0);
         public double Mass { get; set; } = 1000;
         public double Bounce { get; set; } = 0;
@@ -26,9 +21,30 @@ namespace TheGame
             Size = size;
             Collider = new Trigger(Center, Size);
         }
+        public WorldGeometry(Point pos, Size size, bool isTransparent)
+        {
+            Type = AllTypesOfObjects.WorldGeometry;
+            RealPos = MathExtentions.GetVector(pos);
+            Size = size;
+            if (!isTransparent)
+                Collider = new Trigger(Center, Size);
+            else
+                Collider = new Trigger(new Point(0, 0), new Size(0, 0));
+        }
+        public WorldGeometry(Point pos, Size size, bool isTransparent, Brush color)
+        {
+            Type = AllTypesOfObjects.WorldGeometry;
+            RealPos = MathExtentions.GetVector(pos);
+            Size = size;
+            if (!isTransparent)
+                Collider = new Trigger(Center, Size);
+            else
+                Collider = new Trigger(new Point(0, 0), new Size(0, 0));
+            Color = color;
+        }
 
         public void Move() { }
-        public IEnumerable<GameObject> GetNearCollisions(Vector pos)
+        public IEnumerable<GameObject> GetNearCollisions()
             => null;
         public void ClampSpeed(double min, double max) { }
         public void RefreshAllTriggers() { }
