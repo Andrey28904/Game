@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 
 namespace TheGame.Interfaces
@@ -13,11 +9,6 @@ namespace TheGame.Interfaces
         /// WORLD GEOMETRY or Not
         /// </summary>
         bool IsStatic { get; set; }
-
-        /// <summary>
-        /// Can physics objects transfer impulse to this
-        /// </summary>
-        bool IsTransparentForPhysics { get; set; }
 
         /// <summary>
         /// Only for non-static Objects
@@ -64,7 +55,7 @@ namespace TheGame.Interfaces
         /// </summary>
         /// <param name="pos">Position to collide</param>
         /// <returns></returns>
-        IEnumerable<GameObject> GetNearCollisions(Vector pos);
+        IEnumerable<GameObject> GetNearCollisions();
 
         /// <summary>
         /// Set new pos for All triggers

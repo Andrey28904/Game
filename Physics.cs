@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using TheGame.Interfaces;
-using TheGame;
 using System.Windows;
-using System.Drawing;
-using Size = System.Drawing.Size;
-using Point = System.Drawing.Point;
 
 namespace TheGame
 {
@@ -62,10 +54,10 @@ namespace TheGame
         {
             var allOffsetVectors = new[]
             {
-                new Vector(stat.RealPos.X + stat.Size.Width - move.RealPos.X + 0.05, 0),//Right
-                new Vector(stat.RealPos.X - move.Size.Width - move.RealPos.X - 0.05, 0),//Left
-                new Vector(0, stat.RealPos.Y - move.Size.Height - move.RealPos.Y - 0.05),//Up
-                new Vector(0, stat.RealPos.Y + stat.Size.Height - move.RealPos.Y + 0.05)//Down
+                new Vector(stat.RealPos.X + stat.Size.Width - move.RealPos.X + 0.4, 0),//Right
+                new Vector(stat.RealPos.X - move.Size.Width - move.RealPos.X - 0.4, 0),//Left
+                new Vector(0, stat.RealPos.Y - move.Size.Height - move.RealPos.Y - 0.4),//Up
+                new Vector(0, stat.RealPos.Y + stat.Size.Height - move.RealPos.Y + 0.4)//Down
             };
             return allOffsetVectors.OrderBy((rec) => rec.Length).First();
         }

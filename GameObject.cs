@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
 using System.Windows;
 using Size = System.Drawing.Size;
 using Point = System.Drawing.Point;
@@ -42,13 +38,6 @@ namespace TheGame
             var allPoints = GetAllPoints().ToArray();
             for(int i = 0; i < allPoints.Length; i++)
                 yield return new[] { allPoints[i], allPoints[(i + 1) % allPoints.Length] };
-        }
-
-        public IEnumerable<Point> GetMiddlePoints()
-        {
-            var allPairs = GetPairsOfAllPoints();
-            foreach(var pair in allPairs)
-                yield return new Point((pair[0].X + pair[1].Y) / 2, (pair[0].Y + pair[1].Y) / 2);
         }
 
         public GameObject() { }

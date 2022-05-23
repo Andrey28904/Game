@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Reflection;
-using System.Collections;
 using System.Threading;
 using TheGame.Interfaces;
 using Timer = System.Windows.Forms.Timer;
 using System.Windows;
 using Size = System.Drawing.Size;
-using Point = System.Drawing.Point;
+using System.Drawing;
 
 namespace TheGame
 {
@@ -33,19 +27,9 @@ namespace TheGame
         {
             DoubleBuffered = true;
             ClientSize = new Size(1000, 1000);
+            BackColor = Color.AliceBlue;
 
-            var newTimer = new Timer { Interval = FrameDelay};
-            newTimer.Tick += (sender, args) =>
-            {
-                RefreshPhysics(); 
-                Invalidate();
-            };
-            newTimer.Start();
-
-            //ListOfAllTimers.Add(CreateTimer(FrameDelay, "PhysAndDraw", new Action[] {RefreshPhysics, Invalidate}));
-            //ListOfAllTimers.Add(CreateTimer(HUDFrameDelay, "HUD", new Action[] {DrawHUD}));
-
-            //SetUpAllButtons();
+            ListOfAllTimers.Add(CreateTimer(FrameDelay, "PhysAndDraw", new Action[] {RefreshPhysics, Invalidate}));
         }
 
         public Timer CreateTimer(int interval, string tag, Action[] methods)
@@ -84,39 +68,16 @@ namespace TheGame
                 obj.Draw(e.Graphics);
         }
 
-        public void SetUpAllButtons()
-        {
-            KeyDown += (sender, e) =>
-            {
-                if (e.KeyCode == Keys.W)
-                    (AllObjects[0] as IPhysics).AddImpulse(new Vector(0, -100));
-                if (e.KeyCode == Keys.S)
-                    (AllObjects[0] as IPhysics).AddImpulse(new Vector(0, 100));
-                if (e.KeyCode == Keys.A)
-                    (AllObjects[0] as IPhysics).AddImpulse(new Vector(-20, 0));
-                if (e.KeyCode == Keys.D)
-                    (AllObjects[0] as IPhysics).AddImpulse(new Vector(20, 0));
-            };
-        }
         protected override void OnKeyDown(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W)
-                (AllObjects[0] as IPhysics).AddImpulse(new Vector(0, -100));
+                (AllObjects[2] as IPhysics).AddImpulse(new Vector(0, -100));
             if (e.KeyCode == Keys.S)
-                (AllObjects[0] as IPhysics).AddImpulse(new Vector(0, 100));
+                (AllObjects[2] as IPhysics).AddImpulse(new Vector(0, 100));
             if (e.KeyCode == Keys.A)
-                (AllObjects[0] as IPhysics).AddImpulse(new Vector(-20, 0));
+                (AllObjects[2] as IPhysics).AddImpulse(new Vector(-20, 0));
             if (e.KeyCode == Keys.D)
-                (AllObjects[0] as IPhysics).AddImpulse(new Vector(20, 0));
-        }
-
-        public void DrawHUD()
-        {
-            for(long i = 0; i < 100000000; i++)
-            {
-                var e = 10;
-                e++;
-            }
+                (AllObjects[2] as IPhysics).AddImpulse(new Vector(20, 0));
         }
     }
 }
